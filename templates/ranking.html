@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidate Ranking Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- HEADER -->
+    <div class="dashboard-header">
+        <h1>Candidate Ranking Result</h1>
+        <a href="/" class="secondary-btn">Upload New Resumes</a>
+    </div>
+
+    <!-- RANKED CANDIDATES -->
+    {% for c in candidates %}
+    <div class="card" style="margin-bottom: 25px;">
+
+        <!-- RANK + NAME -->
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h2>
+                Rank {{ loop.index }} — {{ c.name }}
+            </h2>
+            <span style="
+                font-size:22px;
+                font-weight:700;
+                color:#2563eb;
+            ">
+                {{ c.final_score }}%
+            </span>
+        </div>
+
+        <!-- FINAL SCORE BAR -->
+        <div class="progress-bar" style="margin-top:15px;">
+            <div class="progress-fill" style="width: {{ c.final_score }}%;">
+                {{ c.final_score }}%
+            </div>
+        </div>
+
+        <p class="muted" style="margin-top:8px;">
+            Final ATS Score (weighted semantic similarity & skill coverage)
+        </p>
+
+        <!-- METRICS -->
+        <div class="grid" style="margin-top:25px;">
+
+            <div class="metric-card">
+                <h3>Semantic Match</h3>
+                <p class="metric-value">{{ c.semantic_score }}%</p>
+                <p class="muted">
+                    NLP-based similarity with job description
+                </p>
+            </div>
+
+            <div class="metric-card">
+                <h3>Skill Coverage</h3>
+                <p class="metric-value">{{ c.skill_coverage }}%</p>
+                <p class="muted">
+                    Percentage of required skills present
+                </p>
+            </div>
+
+        </div>
+
+        <!-- SKILLS -->
+        <div class="grid" style="margin-top:25px;">
+
+            <div>
+                <h3>Matched Required Skills</h3>
+                <div class="chips" style="margin-top:10px;">
+                    {% for skill in c.matched_skills %}
+                    <span class="chip success">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div>
+                <h3>Skill Gap Analysis</h3>
+
+                {% if c.missing_skills %}
+                <div class="chips" style="margin-top:10px;">
+                    {% for skill in c.missing_skills %}
+                    <span class="chip danger">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="success-text" style="margin-top:10px;">
+                    ✅ All required skills are present
+                </p>
+                <p class="muted">
+                    Resume wording can be optimized for higher alignment
+                </p>
+                {% endif %}
+            </div>
+
+        </div>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

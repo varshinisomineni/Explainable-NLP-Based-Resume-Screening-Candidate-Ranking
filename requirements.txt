@@ -1,0 +1,7 @@
+flask
+scikit-learn
+nltk
+spacy
+pandas
+numpy
+PyPDF2

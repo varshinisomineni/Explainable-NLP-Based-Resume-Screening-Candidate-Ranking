@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #eef2f7;
+    margin: 0;
+}
+
+/* APP CONTAINERS */
+.app-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-card {
+    background: white;
+    width: 420px;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* UPLOAD BOX */
+.upload-box {
+    display: block;
+    padding: 30px;
+    border: 2px dashed #1f6ed4;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    color: #1f6ed4;
+    font-weight: 500;
+}
+
+.upload-box input {
+    display: none;
+}
+
+/* BUTTONS */
+.primary-btn {
+    background: #1f6ed4;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.secondary-btn {
+    text-decoration: none;
+    color: #1f6ed4;
+    font-weight: 500;
+}
+
+/* DASHBOARD */
+.dashboard {
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.score-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 28px;
+    margin-top: 15px;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #1f6ed4, #4facfe);
+    height: 100%;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+/* SKILL CHIPS */
+.chips {
+    margin-top: 15px;
+}
+
+.chip {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 20px;
+    margin: 6px;
+    font-size: 14px;
+}
+
+.success {
+    background: #e6f9f0;
+    color: #1e8e5a;
+}
+
+.danger {
+    background: #fdecea;
+    color: #d93025;
+}
